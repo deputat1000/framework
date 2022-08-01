@@ -273,7 +273,7 @@ exports.config = {
      */
     afterTest: function(test, context, { error, result, duration, passed, retries }) {
         if (error) {
-            const now = new Date();
+            const now = (new Date().toISOString()).replace(/:/g,'-');
             browser.saveScreenshot(`./screenshots/${now}.png`);
         }
     },

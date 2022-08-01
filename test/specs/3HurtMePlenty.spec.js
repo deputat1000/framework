@@ -1,5 +1,5 @@
 const CalculatorPage = require('../pages/cloud.google.com/CalculatorPage');
-const {HurtMePlentyEntities} = require('../../test/entities/Entities');
+const {instanceParameters} = require('../../test/entities/Entities');
 
 describe('Hurt Me Plenty', () => {
   let page;
@@ -7,7 +7,7 @@ describe('Hurt Me Plenty', () => {
 
   before(async() => {
     page = new CalculatorPage();
-    entities = new HurtMePlentyEntities();
+    entities = instanceParameters;
     
     await page.open();
     await page.search();
@@ -17,7 +17,7 @@ describe('Hurt Me Plenty', () => {
 
   it('shoud match to selected VM Class', async() => {
     const estimatedVMClass = await page.getVMClass();
-    expect(estimatedVMClass).toEqual(entities.vmClass);
+    expect(estimatedVMClass).toContain(entities.vmClass);
   });
   it('shoud match to selected Instance type', async() => {
     const estimatedInstanceType = await page.getInstanceType();
