@@ -1,5 +1,5 @@
 const HomePage = require('../../test/pages/pastebin.com/HomePage');
-const {ICanWinEntities} = require('../../test/entities/Entities');
+const {simplePaste} = require('../../test/entities/Entities');
 
 describe('I Can Win', () => {
   let page;
@@ -7,7 +7,7 @@ describe('I Can Win', () => {
 
   before(async() => {
     page = new HomePage();
-    entities = new ICanWinEntities();
+    entities = simplePaste;
     
     await page.open();
     await page.createPaste(entities.code, entities.name);

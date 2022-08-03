@@ -1,5 +1,5 @@
 const PastePage = require('../../test/pages/pastebin.com/PastePage');
-const {BringItOnEntities} = require('../../test/entities/Entities');
+const {complexPaste} = require('../../test/entities/Entities');
 
 describe('Bring It On', () => {
   let page;
@@ -7,7 +7,7 @@ describe('Bring It On', () => {
 
   before(async() => {
     page = new PastePage();
-    entities = new BringItOnEntities();
+    entities = complexPaste;
     
     await page.open();
     await page.createPaste(entities.code, entities.name, entities.syntax);
